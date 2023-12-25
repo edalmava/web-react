@@ -6,12 +6,16 @@ const initialTasks = []
 
 function Header() {
   return (
-    <header className="bg-zinc-900 text-zinc-200 font-bold flex justify-between leading-6 content-center">
-      <h1 className="text-4xl px-2">Gestor de Tareas</h1>
-      <nav className="p-2">
+    <header className="p-3 bg-zinc-900 text-zinc-200 font-bold flex justify-between leading-6 content-center">
+      <h1 className="text-4xl px-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 inline-block">
+          <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+        </svg>
+        Gestor de Tareas</h1>      
+      <nav className="p-2 inline-block">
         <ul>
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/juegos">Juegos</a></li>
+          <li className='inline mx-5'><a href="/">Inicio</a></li>
+          <li className='inline'><a href="/juegos">Juegos</a></li>
         </ul>
       </nav>
     </header>
@@ -50,9 +54,11 @@ function Tasks() {
 
   return (
     <main className="bg-white px-4 py-6">
-      { terminated 
-          ? <h2>¡Todas las tareas se han completado!</h2> 
-          : <h2>Faltan tareas por completar</h2>}
+      {  tasks.length ?
+            terminated
+              ? <h2 className='my-5'>¡Todas las tareas se han completado!</h2> 
+              : <h2 className='my-5'>Faltan tareas por completar</h2>
+           : <h2 className='my-5'>No ha agregado tareas</h2>}
       <AddTask task={task} onTaskChange={setTask} addTask={addTask} />
       {listItems}
     </main>
