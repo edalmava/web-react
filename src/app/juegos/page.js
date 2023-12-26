@@ -27,7 +27,7 @@ function Header() {
 function Footer() {
   return (
     <footer className="bg-zinc-900 text-zinc-200 text-xs absolute bottom-0.5">
-      Elaborado por Edalmava con ❤️
+      Elaborado por Edalmava con ❤️ :)
     </footer>
   )
 }
